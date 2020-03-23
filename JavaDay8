@@ -1,0 +1,316 @@
+Tugas 8.2
+
+Lakukan eksesusi kode berikut dan amatilah hasilnya.
+
+In [5]:
+public class Mahasiswa {
+    String nama;
+    double IPK;
+    int semester;
+
+public String hitungYudisium() {
+    String yudisium;
+    if ( (semester<=8) && (IPK>3.5) ) {
+            yudisium = "Cum Laude";
+        } else {
+            yudisium = "Memuaskan";
+        }
+        return yudisium;
+    }
+}
+Out[5]:
+com.twosigma.beaker.javash.bkrcf1d09b7.Mahasiswa
+In [6]:
+public class MahasiswaS2 extends Mahasiswa {
+
+public String hitungYudisium() {
+        String yudisium;
+        if ( (semester<=4) && (IPK>3.8) ) {
+            yudisium = "Cum Laude";
+        } else {
+            yudisium = "Memuaskan";
+        }
+        return yudisium;
+    }
+
+}
+Out[6]:
+com.twosigma.beaker.javash.bkrcf1d09b7.MahasiswaS2
+In [7]:
+Mahasiswa m = new Mahasiswa();
+        m.IPK=3.6;
+        m.semester=8;
+        System.out.println(m.hitungYudisium());
+
+        MahasiswaS2 mS2 = new MahasiswaS2();  
+        mS2.IPK=3.6;
+        mS2.semester=8;
+        System.out.println(mS2.hitungYudisium());
+Cum Laude
+Memuaskan
+Out[7]:
+null
+Tugas 8.3 Buatlah class MahasiswaS3 yang merupakan turunan dari class Mahasiswa. Override method hitungYudisium dengan syarat IPK harus >= 3.6 dan semester <= 6. dengan implementassi sebagai berikut MahasiswaS3 mS3 = new MahasiswaS3(); mS3.IPK=3.9; mS3.semester=8; System.out.println(mS3.hitungYudisium());
+In [2]:
+public class Mahasiswa {
+    String nama;
+    double IPK;
+    int semester;
+
+public String hitungYudisium() {
+    String yudisium;
+    if ( (semester<=8) && (IPK>3.5) ) {
+            yudisium = "Cum Laude";
+        } else {
+            yudisium = "Memuaskan";
+        }
+        return yudisium;
+    }
+}
+Out[2]:
+com.twosigma.beaker.javash.bkr557ede3e.Mahasiswa
+In [7]:
+public class MahasiswaS3 extends Mahasiswa {
+
+public String hitungYudisium() {
+        String yudisium;
+        if ( (semester<=6) && (IPK>=3.6) ) {
+            yudisium = "Cum Laude";
+        } else {
+            yudisium = "Memuaskan";
+        }
+        return yudisium;
+    }
+
+}
+Out[7]:
+com.twosigma.beaker.javash.bkr557ede3e.MahasiswaS3
+In [8]:
+MahasiswaS3 mS3 = new MahasiswaS3();  
+        mS3.IPK=3.9;
+        mS3.semester=8;
+        System.out.println(mS3.hitungYudisium());
+Memuaskan
+Out[8]:
+null
+Tugas 8.4
+
+Asumsikan kita telah mempunya class Mahasiswa dan class MahasiswaS3 dari kode sebelumnya. Ubah Tugas 8.3 lalu tambahkan code berikut untuk mengimplementasikan kode berikut:
+
+In [23]:
+public class Mahasiswa {
+    String nama;
+    double IPK;
+    int semester;
+
+public String hitungYudisium() {
+    String yudisium;
+    if ( (semester<=8) && (IPK>3.5) ) {
+            yudisium = "Cum Laude";
+        } else {
+            yudisium = "Memuaskan";
+        }
+        return yudisium;
+    }
+}
+Out[23]:
+com.twosigma.beaker.javash.bkr557ede3e.Mahasiswa
+In [24]:
+public class MahasiswaS2 extends Mahasiswa {
+
+public String hitungYudisium() {
+        String yudisium;
+        if ( (semester<=4) && (IPK>3.8) ) {
+            yudisium = "Cum Laude";
+        } else {
+            yudisium = "Memuaskan";
+        }
+        return yudisium;
+    }
+
+}
+Out[24]:
+com.twosigma.beaker.javash.bkr557ede3e.MahasiswaS2
+In [25]:
+public class MahasiswaS3 extends Mahasiswa {
+
+public String hitungYudisium() {
+        String yudisium;
+        if ( (semester<=6) && (IPK>=3.6) ) {
+            yudisium = "Cum Laude";
+        } else {
+            yudisium = "Memuaskan";
+        }
+        return yudisium;
+    }
+
+}
+Out[25]:
+com.twosigma.beaker.javash.bkr557ede3e.MahasiswaS3
+In [26]:
+Mahasiswa m;
+        Mahasiswa mS1 = new Mahasiswa();
+        MahasiswaS3 mS3 = new MahasiswaS3();        
+
+        mS1.IPK=3.6;
+        mS1.semester=8;
+
+        mS3.IPK = 3.7;
+        mS3.semester=5;
+
+        m = mS1 ; //bisa        
+        System.out.println(m.hitungYudisium());
+        m = mS3 ; //bisa juga
+        m.hitungYudisium();         
+        System.out.println(m.hitungYudisium());
+
+        //array
+        Mahasiswa[] arrMhs = new Mahasiswa[2];
+        arrMhs[0] = mS1;
+        arrMhs[1] = mS3;
+Cum Laude
+Cum Laude
+Out[26]:
+null
+In [27]:
+public class ContohOverloading { 
+ public void jumlah (int a, int b){
+ System.out.println("Jumlah 2 angka ="+ (a + b));
+ } 
+ //oveloading perbedaan jumlah parameter
+ public void jumlah (int a, int b, int c){
+ System.out.println("Jumlah 3 angka =" + (a + b + c));
+ } 
+ //overloading perbedaan tipe data parameter
+ public void jumlah (double a, int b){
+ System.out.println("Jumlah 2 angka (double+int) = "+ (a + b));
+ } 
+ //overloading perbedaan urutan tipe data parameter
+ public void jumlah (int b, double a){
+ System.out.println("Jumlah 2 angka (int+double) = "+ (a + b));
+ }
+}
+Out[27]:
+com.twosigma.beaker.javash.bkr557ede3e.ContohOverloading
+In [28]:
+ContohOverloading co  = new ContohOverloading();        
+        co.jumlah(83,32);
+        co.jumlah(34,454,432);
+        co.jumlah(34.43,34);
+        co.jumlah(28,33.23);
+Jumlah 2 angka =115
+Jumlah 3 angka =920
+Jumlah 2 angka (double+int) = 68.43
+Jumlah 2 angka (int+double) = 61.23
+Out[28]:
+null
+Tugas 8.6
+
+Implementasikan Program 8.6 diatas kemudian lakukan eksesusi kode tersebut dan amatilah hasilnya.
+
+In [29]:
+public class Binatang {
+    public void begerak(){
+        System.out.println("Binatang bergerak sesuai kemampuannya");
+    }
+    public void berkembangBiak(){
+        System.out.println("Binatang berkembang biak sesuai kemampuannya");
+    }
+
+}
+Out[29]:
+com.twosigma.beaker.javash.bkr557ede3e.Binatang
+In [30]:
+public class Mamalia extends Binatang {
+    //overriding method parent class
+    public void begerak(){
+        System.out.println("Mamalia bergerak sebagian besar dengan kakinya");
+    }    
+    public void berlari(){
+        System.out.println("Sebagian Mamalia dapat berlari");
+    }
+}
+Out[30]:
+com.twosigma.beaker.javash.bkr557ede3e.Mamalia
+In [31]:
+Binatang b = new Binatang();
+        Mamalia m = new Mamalia();
+        Binatang bm = new Mamalia();
+
+        b.begerak();
+        m.begerak();
+        bm.begerak();
+        bm.berkembangBiak();
+Binatang bergerak sesuai kemampuannya
+Mamalia bergerak sebagian besar dengan kakinya
+Mamalia bergerak sebagian besar dengan kakinya
+Binatang berkembang biak sesuai kemampuannya
+Out[31]:
+null
+Tugas 8.7
+
+Implementasikan Program 8.7 diatas kemudian lakukan eksesusi kode tersebut dan amatilah hasilnya
+
+In [32]:
+public interface CetakLaporan {
+    public void cetakA4();
+    public void cetakA3();
+}
+Out[32]:
+com.twosigma.beaker.javash.bkr557ede3e.CetakLaporan
+In [33]:
+public class LaporanPenjualan implements CetakLaporan{
+    public void cetakA4(){
+        System.out.println("Cetak Laporan di A4");
+    }
+    public void cetakA3(){
+        System.out.println("Cetak Laporan di A3");
+    }
+}
+Out[33]:
+com.twosigma.beaker.javash.bkr557ede3e.LaporanPenjualan
+In [34]:
+LaporanPenjualan lt = new LaporanPenjualan();
+        lt.cetakA3();
+        lt.cetakA4();
+Cetak Laporan di A3
+Cetak Laporan di A4
+Out[34]:
+null
+In [35]:
+public interface TampilLaporan {
+    public void tampilWeb();
+    public void tampilMobile();
+}
+Out[35]:
+com.twosigma.beaker.javash.bkr557ede3e.TampilLaporan
+In [37]:
+public class LaporanPembelian implements CetakLaporan, TampilLaporan{
+    public void cetakA4(){
+        System.out.println("Cetak Laporan di A4");
+    }
+    public void cetakA3(){
+        System.out.println("Cetak Laporan di A3");
+    }
+    public void tampilWeb(){
+        System.out.println("Tampil di Monitor");
+    }
+    public void tampilMobile(){
+        System.out.println("Tampil di Handphone");
+    }
+}
+Out[37]:
+com.twosigma.beaker.javash.bkr557ede3e.LaporanPembelian
+In [38]:
+LaporanPembelian lp = new LaporanPembelian();
+        lp.cetakA3();
+        lp.cetakA4();
+        lp.tampilMobile();
+        lp.tampilWeb();
+Cetak Laporan di A3
+Cetak Laporan di A4
+Tampil di Handphone
+Tampil di Monitor
+Out[38]:
+null
+In [ ]:
